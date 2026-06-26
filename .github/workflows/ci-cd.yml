@@ -1,0 +1,42 @@
+name: Financial Intelligence CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Pull down your repository code onto the runner machine
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    # 2. Setup isolated Python environment
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    # 3. Cache dependencies to speed up future runs
+    - name: Cache Pip Dependencies
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
+    # 4. Install your project packages
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    # 5. Build Verification: Make sure Docker Compose compiles smoothly
+    - name: Verify Docker Build Configuration
+      run: |
+        docker-compose config
