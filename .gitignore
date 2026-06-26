@@ -1,0 +1,13 @@
+# Ignore local virtual environments
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Ignore heavy binary model weights and databases
+saved_model/
+mlflow.db
+qdrant_storage/
+
+# Ignore sensitive keys
+.env
