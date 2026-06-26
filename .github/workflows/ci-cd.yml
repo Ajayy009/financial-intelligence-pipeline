@@ -39,4 +39,4 @@ jobs:
     # 5. Build Verification: Make sure Docker Compose compiles smoothly
     - name: Verify Docker Build Configuration
       run: |
-        docker-compose config
+        docker compose config
