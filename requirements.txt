@@ -12,3 +12,4 @@ qdrant-client
 langchain
 langchain-community
 sentence-transformers
+streamlit>=1.30.0
