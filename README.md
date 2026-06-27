@@ -1,6 +1,6 @@
 # Dual-Engine Financial Intelligence Platform
 
-An end-to-end, production-grade **MLOps & LLMOps** platform featuring an integrated AI architecture. The system unifies a fine-tuned local Transformer model for real-time risk classification with a Generative AI Retrieval-Augmented Generation (RAG) pipeline, backed by automated **CI/CD** infrastructure for seamless verification and deployment.
+An end-to-end, production-grade **MLOps & LLMOps** platform featuring an integrated AI architecture. The system unifies a fine-tuned Hugging face Transformer model for real-time risk classification with a Generative AI Retrieval-Augmented Generation (RAG) pipeline, backed by automated **CI/CD** infrastructure for seamless verification and deployment.
 
 ---
 
