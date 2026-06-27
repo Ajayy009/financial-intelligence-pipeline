@@ -1,15 +1,13 @@
 
-
-
 # Dual-Engine Financial Intelligence Platform
 
-An end-to-end, production-grade MLOps platform featuring a hybrid AI architecture. The system combines a fine-tuned local Transformer model for real-time risk classification with an enterprise-level Generative AI Retrieval-Augmented Generation (RAG) pipeline for grounded financial document intelligence.
+An end-to-end, production-grade **MLOps & LLMOps** platform featuring an integrated AI architecture. The system unifies a fine-tuned local Transformer model for real-time risk classification with a Generative AI Retrieval-Augmented Generation (RAG) pipeline, backed by automated **CI/CD** infrastructure for seamless verification and deployment.
 
 ---
 
 ## 🏗️ Architecture Overview
 
-The platform integreates two high-performance operational phases exposed via a single, unified containerized FastAPI backend and a decoupled Streamlit frontend dashboard:
+The platform integrates two high-performance operational phases exposed via a single, unified containerized FastAPI backend and a decoupled Streamlit frontend dashboard:
 
 ### Phase 1: Real-Time Financial Sentiment Engine
 * **Core Model:** Fine-tuned `bert-base-uncased` via Hugging Face and PyTorch.
