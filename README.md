@@ -43,17 +43,37 @@ The entire ecosystem is containerized and orchestrated using **Docker Compose**.
 
 ### 2. Interactive Swagger API Gateway
 The FastAPI application provides a single entry point exposing endpoints for both real-time model inference (`/predict`) and conversational retrieval (`/rag`).
+## 📊 Platform Visuals & Interface Verification
 
-*[INSERT SCREENSHOT: Interactive FastAPI Swagger UI (/docs) demonstrating your custom financial endpoints]*
+### 1. Core Endpoints Overview (FastAPI Swagger UI)
+*[INSERT SCREENSHOT: One clean shot of the overall /docs page showing both the /predict and /rag routes available]*
 
-### 3. Automated CI/CD Pipeline (GitHub Actions)
+---
+
+### 2. Phase 1 Engine: BERT Sentiment Analyzer (`/predict`)
+
+| API Input Payload (Text String) | Backend API JSON Response |
+| :---: | :---: |
+| ![BERT Input](assets/bert_input.png) | ![BERT Response](assets/bert_response.png) |
+
+---
+
+### 3. Phase 2 Engine: LangChain GenAI (`/rag`)
+
+| API Input Payload (Financial Query) | Grounded Context JSON Response |
+| :---: | :---: |
+| ![RAG Input](assets/rag_input.png) | ![RAG Response](assets/rag_response.png) |
+
+---
+
+### 4. Automated CI/CD Pipeline (GitHub Actions)
 Structured via **GitHub Actions**. Every code push triggers automated dependency builds, linting validation, and an automated integration test suite (`test_api.py`) to guarantee 100% uptime before deployment.
 
 *[INSERT SCREENSHOT: GitHub Actions tab showing your successful workflow run with the beautiful green checkmark]*
 
 ---
 
-## 📈 Experiment Tracking & Observability (MLflow)
+## 5. 📈 Experiment Tracking & Observability (MLflow)
 
 To maintain true production-tier reliability, we integrated an active tracking layer using **MLflow**. The system tracks both phases simultaneously:
 * **Phase 1 Tracking:** Monitors individual BERT classification runs, performance latencies, and output confidences.
