@@ -9,7 +9,7 @@ An end-to-end, production-grade MLOps platform featuring a hybrid AI architectur
 
 ## 🏗️ Architecture Overview
 
-The platform amalgamates two high-performance operational phases exposed via a single, unified containerized FastAPI backend and a decoupled Streamlit frontend dashboard:
+The platform integreates two high-performance operational phases exposed via a single, unified containerized FastAPI backend and a decoupled Streamlit frontend dashboard:
 
 ### Phase 1: Real-Time Financial Sentiment Engine
 * **Core Model:** Fine-tuned `bert-base-uncased` via Hugging Face and PyTorch.
@@ -17,10 +17,10 @@ The platform amalgamates two high-performance operational phases exposed via a s
 * **Objective:** Analyzes volatile financial text statements and provides instantaneous sentiment classification (`Positive`, `Negative`, `Neutral`) locally, ensuring ultra-low latency without external network dependencies.
 
 #### 📊 Model Training Metrics (2 Epochs)
-| Epoch | Training Loss | Validation Loss | Accuracy | Macro F1-Score |
-| :--- | :--- | :--- | :--- | :--- |
-| **Epoch 1** | 0.3841 | 0.2412 | 91.2% | 0.894 |
-| **Epoch 2** | 0.1905 | 0.2108 | 93.5% | 0.921 |
+| Epoch | Training Loss | Validation Loss | Accuracy |
+| :--- | :--- | :--- | :--- |
+| **Epoch 1** | 0.6917 |  0.4621  | 82.15% |
+| **Epoch 2** | 0.3462 | 0.4151 | 84.30%| 
 
 ### Phase 2: Grounded Financial Q&A (GenAI RAG Engine)
 * **Orchestration:** LangChain Framework.
