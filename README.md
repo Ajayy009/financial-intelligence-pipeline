@@ -1,4 +1,3 @@
-
 # Dual-Engine Financial Intelligence Platform
 
 An end-to-end, production-grade **MLOps & LLMOps** platform featuring an integrated AI architecture. The system unifies a fine-tuned local Transformer model for real-time risk classification with a Generative AI Retrieval-Augmented Generation (RAG) pipeline, backed by automated **CI/CD** infrastructure for seamless verification and deployment.
@@ -18,7 +17,7 @@ The platform integrates two high-performance operational phases exposed via a si
 | Epoch | Training Loss | Validation Loss | Accuracy |
 | :--- | :--- | :--- | :--- |
 | **Epoch 1** | 0.6917 |  0.4621  | 82.15% |
-| **Epoch 2** | 0.3462 | 0.4151 | 84.30%| 
+| **Epoch 2** | 0.3462 | 0.4151 | 84.30% | 
 
 ### Phase 2: Grounded Financial Q&A (GenAI RAG Engine)
 * **Orchestration:** LangChain Framework.
@@ -29,7 +28,7 @@ The platform integrates two high-performance operational phases exposed via a si
 ### 🖥️ Unified Front-End Interface
 Both engines are accessible side-by-side inside a responsive, real-time analytics dashboard.
 
-*[INSERT SCREENSHOT: Full view of your Streamlit app running both the BERT sentiment classifier output and the Grounded RAG system answers simultaneously]*
+![Streamlit Frontend Interface](assets/Streamlit.png)
 
 ---
 
@@ -39,47 +38,50 @@ Both engines are accessible side-by-side inside a responsive, real-time analytic
 The entire ecosystem is containerized and orchestrated using **Docker Compose**. This isolates the FastAPI core engine, the Qdrant database, and the MLflow instance into a shared local network.
 * FastAPI routes local traffic and hosts both AI engines seamlessly on port **8001**.
 
-*[INSERT SCREENSHOT: Docker Desktop or terminal window showing your active, running container stack]*
+![Docker Containers Running](assets/docker.png)
 
-### 2. Interactive Swagger API Gateway
+### 2. Interactive Swagger API Gateway & Verification
 The FastAPI application provides a single entry point exposing endpoints for both real-time model inference (`/predict`) and conversational retrieval (`/rag`).
-## 📊 Platform Visuals & Interface Verification
 
-### 1. Core Endpoints Overview (FastAPI Swagger UI)
-*[INSERT SCREENSHOT: One clean shot of the overall /docs page showing both the /predict and /rag routes available]*
-
----
-
-### 2. Phase 1 Engine: BERT Sentiment Analyzer (`/predict`)
+#### 🔹 Phase 1 Engine: BERT Sentiment Analyzer (`/predict`)
 
 | API Input Payload (Text String) | Backend API JSON Response |
 | :---: | :---: |
-| ![BERT Input](assets/bert_input.png) | ![BERT Response](assets/bert_response.png) |
+| ![BERT Input](assets/bert_input.png) | ![BERT Response](assets/bert_output.png) |
 
----
-
-### 3. Phase 2 Engine: LangChain GenAI (`/rag`)
+#### 🔹 Phase 2 Engine: LangChain GenAI (`/rag`)
 
 | API Input Payload (Financial Query) | Grounded Context JSON Response |
 | :---: | :---: |
-| ![RAG Input](assets/rag_input.png) | ![RAG Response](assets/rag_response.png) |
+| ![RAG Input](assets/rag_input.png) | ![RAG Response](assets/rag_output.png) |
+
+---
+
+### 3. Vector Store Verification (Qdrant Database)
+Tracks collections, payload parameters, and structural vector payloads directly within an isolated vector environment.
+
+![Qdrant Vector DB Layout](assets/qdrant_vdb.png)
 
 ---
 
 ### 4. Automated CI/CD Pipeline (GitHub Actions)
 Structured via **GitHub Actions**. Every code push triggers automated dependency builds, linting validation, and an automated integration test suite (`test_api.py`) to guarantee 100% uptime before deployment.
 
-*[INSERT SCREENSHOT: GitHub Actions tab showing your successful workflow run with the beautiful green checkmark]*
+![GitHub Actions Workflow](assets/Ci_CD_Git_hub.png)
 
 ---
 
-## 5. 📈 Experiment Tracking & Observability (MLflow)
+## 📈 Experiment Tracking & Observability (MLflow)
 
-To maintain true production-tier reliability, we integrated an active tracking layer using **MLflow**. The system tracks both phases simultaneously:
-* **Phase 1 Tracking:** Monitors individual BERT classification runs, performance latencies, and output confidences.
-* **Phase 2 Tracking:** Uses advanced MLflow Traces to map API endpoints, documenting execution graphs for vector lookups and LLM completions.
+To maintain true production-tier reliability, we integrated an active tracking layer using **MLflow**. The system tracks training historical indicators alongside functional API operational states simultaneously:
 
-*[INSERT SCREENSHOT: MLflow Dashboard showing your tracking metrics, parameter configurations, or backend traces]*
+| Run Configuration Hyperparameters | Logged Performance Metrics Curves |
+| :---: | :---: |
+| ![MLflow BERT Run Profile](assets/bert_overview.png) | ![MLflow Metric Overviews](assets/bert_metrics.png) |
+
+*System runtime dependencies, traces, and metadata parameters for GenAI components are fully isolated and monitored via target runtime identifiers:*
+
+![MLflow RAG Active Logs](assets/mlflowrag.png)
 
 ---
 
@@ -100,41 +102,3 @@ FINANCIAL_NLP_PIPELINE/
 ├── docker-compose.yml   # Multi-container orchestration specification
 ├── requirements.txt     # Python project dependencies
 └── README.md            # System documentation
-
-```
-
----
-
-## 🚀 Quick Start Guide
-
-### 1. Environment Configuration
-
-Create a `.env` file in the root directory:
-
-```env
-GEMINI_API_KEY=your_gemini_api_key_here
-
-```
-
-### 2. Launch Infrastructure Stack
-
-Start your backend services via Docker Compose:
-
-```bash
-docker compose up -d
-
-```
-
-### 3. Launch UI Layer
-
-Activate your local virtual environment and launch the presentation server:
-
-```bash
-streamlit run app.py
-
-```
-
-```
-
----
-
