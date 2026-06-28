@@ -1,6 +1,6 @@
 # Dual-Engine Financial Intelligence Platform
 
-An end-to-end, production-grade **MLOps & LLMOps** platform featuring an integrated AI architecture. The system unifies a fine-tuned Hugging face Transformer model for real-time risk classification with a Generative AI Retrieval-Augmented Generation (RAG) pipeline, backed by automated **CI/CD** infrastructure for seamless verification and deployment.
+An end-to-end, production-grade **MLOps & LLMOps** platform featuring an integrated AI architecture. The system unifies a fine-tuned Hugging face Transformer model(Natural Language Processing/NLP) for real-time risk classification with a Generative AI Retrieval-Augmented Generation (RAG) pipeline, backed by automated **CI/CD** infrastructure for seamless verification and deployment.
 
 ---
 
@@ -8,7 +8,7 @@ An end-to-end, production-grade **MLOps & LLMOps** platform featuring an integra
 
 The platform integrates two high-performance operational phases exposed via a single, unified containerized FastAPI backend and a decoupled Streamlit frontend dashboard:
 
-### Phase 1: Real-Time Financial Sentiment Engine
+### Phase 1: Real-Time Financial Sentiment Engine(NLP)
 * **Core Model:** Fine-tuned `bert-base-uncased` via Hugging Face and PyTorch.
 * **Training & Compute:** Trained using a **Google Colab T4 GPU** environment. The optimized model weights (`model.pt`) were exported and packed into our local production inference layer.
 * **Objective:** Analyzes volatile financial text statements and provides instantaneous sentiment classification (`Positive`, `Negative`, `Neutral`) locally, ensuring ultra-low latency without external network dependencies.
